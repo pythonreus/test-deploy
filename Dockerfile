@@ -5,8 +5,8 @@ FROM eclipse-temurin:21-jdk-alpine
 WORKDIR /app
 
 # Copy Maven project files
-COPY pom.xml .
-COPY src ./src
+COPY ValentineChronicles/pom.xml .
+COPY ValentineChronicles/src ./src
 
 # Build the project
 RUN ./mvnw package -DskipTests
