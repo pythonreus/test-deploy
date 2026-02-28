@@ -13,10 +13,8 @@ COPY ValentineChronicles/src ./src
 # Give executable permissions to mvnw
 RUN chmod +x mvnw
 
-# Build project
+# Build project (this creates target/*.jar)
 RUN ./mvnw package -DskipTests
 
-# Copy JAR to root
-COPY ValentineChronicles/target/ValentineChronicles-0.0.1-SNAPSHOT.jar app.jar
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+# Run the JAR from the container's target folder
+ENTRYPOINT ["java", "-jar", "target/ValentineChronicles-0.0.1-SNAPSHOT.jar"]
